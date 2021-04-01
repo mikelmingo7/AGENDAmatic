@@ -11,6 +11,7 @@ int main(void)
 	printf("Hola soy AGENDAmatic!\n");
 	printf("Bienvenido a AgendaMatic\n");
 	printf("Hola!");
+	printf("awa");
 	return 0;
 }
 
