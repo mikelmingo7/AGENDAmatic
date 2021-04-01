@@ -10,6 +10,7 @@ int main(void)
 {
 	printf("Hola soy AGENDAmatic!\n");
 	printf("Bienvenido a AgendaMatic\n");
+	printf("Hola!");
 	return 0;
 }
 
