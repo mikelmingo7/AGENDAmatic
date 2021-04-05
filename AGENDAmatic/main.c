@@ -42,30 +42,35 @@ void echo(void)
 
 				char *titulo = (char *)malloc(100);
 				printf("Introduce un titulo");
+				fflush( stdin );
 				scanf("%s", titulo);
 				//tarea.tit= titulo;
 				strcpy(tarea.tit,titulo);
 
 				char *descripcion = (char *)malloc(200);
 				printf("Introduce una descripcion");
+				fflush( stdin );
 				scanf("%s", descripcion);
 				//tarea.desc= *descripcion;
 				strcpy(tarea.desc,descripcion);
 
 				char *fecha = (char *)malloc(11);
 				printf("Introduce una fecha");
+				fflush( stdin );
 				scanf("%s", fecha);
 				//tarea.fech= *fecha;
 				strcpy(tarea.fech,fecha);
 
 				int *minutos = (int *)malloc(6);
 				printf("Introduce una duracion en minutos ");
+				fflush( stdin );
 				scanf("%i", minutos);
 				tarea.min= *minutos;
 				//strcpy(tarea.min,minutos);
 
 				int *importancia = (int *)malloc(2);
 				printf("Introduce la importancia del  1 al 10");
+				fflush( stdin );
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
 				//strcpy(tarea.imp,importancia);
