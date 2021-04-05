@@ -43,15 +43,20 @@ void echo(void)
 				char *titulo = (char *)malloc(100);
 				printf("Introduce un titulo");
 				fflush( stdin );
-				scanf("%s", titulo);
+				fgets(titulo, 100, stdin);
+				//scanf("%s", titulo);
 				//tarea.tit= titulo;
+				//Para borrar el salto de linea
+				titulo[strcspn(titulo, "\n")] = 0;
 				strcpy(tarea.tit,titulo);
 
 				char *descripcion = (char *)malloc(200);
 				printf("Introduce una descripcion");
 				fflush( stdin );
-				scanf("%s", descripcion);
+				//scanf("%s", descripcion);
 				//tarea.desc= *descripcion;
+				fgets(descripcion, 200, stdin);
+				descripcion[strcspn(descripcion, "\n")] = 0;
 				strcpy(tarea.desc,descripcion);
 
 				char *fecha = (char *)malloc(11);
