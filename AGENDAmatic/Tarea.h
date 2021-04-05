@@ -19,5 +19,7 @@ typedef struct Tarea
 }Tarea;
 
 void guardar(Tarea t);
+void leerTareas();
+void borrarTareas(int numeroTarea);
 
 #endif /* TAREA_H_ */

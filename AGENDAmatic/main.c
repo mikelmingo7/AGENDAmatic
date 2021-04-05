@@ -26,14 +26,14 @@ void echo(void)
 			fflush( stdin );
 			scanf( "%c", &opcion );
 
-		} while ( opcion < '1' || opcion > '3' );
+		} while ( opcion < '1' || opcion > '5' );
 
 		switch ( opcion )
 		{
 			case '1':
 				printf("  \n");
 				printf("Has elegido la opcion: 1 \n");
-
+				leerTareas();
 				break;
 
 			case '2':
@@ -84,7 +84,15 @@ void echo(void)
 				guardar(tarea);
 
 				break;
-
+			case '4':
+				printf("  \n");
+				printf("Has elegido la opcion: 4 \n");
+				leerTareas();
+				printf("Introduce el numero de tarea que quieres borrar \n");
+				int numero;
+				scanf( "%i", &numero );
+				borrarTareas(numero);
+				break;
 		}
 
     } while ( opcion != '5' );
