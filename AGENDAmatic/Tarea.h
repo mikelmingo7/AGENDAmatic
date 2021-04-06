@@ -7,7 +7,6 @@
 
 #ifndef TAREA_H_
 #define TAREA_H_
-#define MAXCHAR 1000
 
 typedef struct Tarea
 {
@@ -19,6 +18,7 @@ typedef struct Tarea
 
 }Tarea;
 
+void leerTareas();
 void guardar(Tarea t);
 void borrarTareas(int numeroTarea);
 void editarTarea(int numeroTarea, Tarea tarea);

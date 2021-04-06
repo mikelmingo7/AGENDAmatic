@@ -18,6 +18,7 @@ void echo(void)
 
 	do
     {
+		printf("");
 		printf("  \n");
 		printf("  1.Ver tareas \n");
 		printf("  2.Anadir una tarea \n");
@@ -38,20 +39,7 @@ void echo(void)
 			case '1':
 				printf("  \n");
 				printf("Has elegido la opcion: 1 \n");
-
-				#define MAXCHAR 1000
-					FILE *fp;
-					char str[MAXCHAR];
-					char* filename = "Tareas.txt";
-
-					fp = fopen(filename, "r");
-					if (fp == NULL){
-						printf("No se puede abrir el archivo %s",filename);
-					}
-					printf("Listado de tareas pendientes: \n");
-					while (fgets(str, MAXCHAR, fp) != NULL)
-						printf("%s", str);
-					fclose(fp);
+				leerTareas();
 				break;
 
 			case '2':
@@ -161,10 +149,6 @@ void echo(void)
 
 int main(void)
 {
-	printf("Hola soy AGENDAmatic!\n");
-	printf("Bienvenido a AgendaMatic\n");
-	printf("Hola!");
-	printf("awa");
 	echo();
 
 	return 0;
