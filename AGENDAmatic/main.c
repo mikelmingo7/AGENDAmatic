@@ -37,14 +37,8 @@ void echo(void)
 		{
 			case '1':
 				printf("  \n");
-				
-    			char* tarea = (char*) malloc(sizeof(tarea)*100);
 				printf("Has elegido la opcion: 1 \n");
-				printf("Introduce una nueva tarea: ");
-				scanf("%s", &tarea);
-				fflush(stdin);
-				getch();
-				printf("%c", tarea);
+				leerTareas();
 				break;
 
 			case '2':
