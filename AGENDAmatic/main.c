@@ -46,7 +46,7 @@ void echo(void)
 				printf("Has elegido la opcion: 2 Anadir tarea\n");
 
 				//char *titulo = (char *)malloc(100);
-				printf("Introduce un titulo");
+				printf("Introduce un titulo: ");
 				fflush( stdin );
 				fgets(titulo, 100, stdin);
 				//scanf("%s", titulo);
@@ -56,7 +56,7 @@ void echo(void)
 				strcpy(tarea.tit,titulo);
 
 				//char *descripcion = (char *)malloc(200);
-				printf("Introduce una descripcion");
+				printf("Introduce una descripcion: ");
 				fflush( stdin );
 				//scanf("%s", descripcion);
 				//tarea.desc= *descripcion;
@@ -65,21 +65,21 @@ void echo(void)
 				strcpy(tarea.desc,descripcion);
 
 				//char *fecha = (char *)malloc(11);
-				printf("Introduce una fecha");
+				printf("Introduce una fecha: ");
 				fflush( stdin );
 				scanf("%s", fecha);
 				//tarea.fech= *fecha;
 				strcpy(tarea.fech,fecha);
 
 				//int *minutos = (int *)malloc(6);
-				printf("Introduce una duracion en minutos ");
+				printf("Introduce una duracion en minutos: ");
 				fflush( stdin );
 				scanf("%i", minutos);
 				tarea.min= *minutos;
 				//strcpy(tarea.min,minutos);
 
 				//int *importancia = (int *)malloc(2);
-				printf("Introduce la importancia del  1 al 10");
+				printf("Introduce la importancia del  1 al 10: ");
 				fflush( stdin );
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
@@ -93,7 +93,7 @@ void echo(void)
 				printf("  \n");
 				printf("Has elegido la opcion: 4 \n");
 				leerTareas();
-				printf("Introduce el numero de tarea que quieres borrar \n");
+				printf("Introduce el numero de tarea que quieres borrar: \n");
 				int numero;
 				scanf( "%i", &numero );
 				borrarTareas(numero);
@@ -102,36 +102,36 @@ void echo(void)
 				printf("  \n");
 				printf("Has elegido la opcion: 3 \n");
 				leerTareas();
-				printf("Introduce el numero de tarea que quieres borrar \n");
+				printf("Introduce el numero de tarea que quieres borrar: \n");
 				int numeroEditar;
 				scanf( "%i", &numeroEditar );
 
 				/////////
-				printf("Introduce un titulo");
+				printf("Introduce un titulo: ");
 				fflush( stdin );
 				fgets(titulo, 100, stdin);
 				titulo[strcspn(titulo, "\n")] = 0;
 				strcpy(tarea.tit,titulo);
 
-				printf("Introduce una descripcion");
+				printf("Introduce una descripcion: ");
 				fflush( stdin );
 				fgets(descripcion, 200, stdin);
 				descripcion[strcspn(descripcion, "\n")] = 0;
 				strcpy(tarea.desc,descripcion);
 
 
-				printf("Introduce una fecha");
+				printf("Introduce una fecha: ");
 				fflush( stdin );
 				scanf("%s", fecha);
 				strcpy(tarea.fech,fecha);
 
 
-				printf("Introduce una duracion en minutos ");
+				printf("Introduce una duracion en minutos: ");
 				fflush( stdin );
 				scanf("%i", minutos);
 				tarea.min= *minutos;
 
-				printf("Introduce la importancia del  1 al 10");
+				printf("Introduce la importancia del  1 al 10: ");
 				fflush( stdin );
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
