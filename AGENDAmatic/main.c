@@ -18,13 +18,12 @@ void echo(void)
 
 	do
     {
-		printf("");
-		printf("  \n");
 		printf("  1.Ver tareas \n");
 		printf("  2.Anadir una tarea \n");
 		printf("  3.Editar una tarea \n");
 		printf("  4.Borrar una tarea \n");
 		printf("  5.Salir \n");
+		printf("\n");
 
 		do
 		{
@@ -37,14 +36,20 @@ void echo(void)
 		switch ( opcion )
 		{
 			case '1':
-				printf("  \n");
-				printf("Has elegido la opcion: 1 \n");
+				printf("\n");
+				printf("Has elegido la opcion: 1 (Ver lista de Tareas)\n");
+				printf("\n");
+				printf("----------------------------\n");
+				printf("Lista de Tareas: \n");
 				leerTareas();
+				printf("----------------------------\n");
+				printf("\n");
 				break;
 
 			case '2':
-				printf("  \n");
-				printf("Has elegido la opcion: 2 Anadir tarea\n");
+				printf("\n");
+				printf("Has elegido la opcion: 2 (Anadir tarea)\n");
+				printf("\n");
 
 				//char *titulo = (char *)malloc(100);
 				printf("Introduce un titulo: ");
@@ -88,7 +93,8 @@ void echo(void)
 
 				printf("\n");
 				guardar(tarea);
-
+				printf("\n");
+				printf("\n");
 				break;
 			case '4':
 				printf("  \n");
@@ -149,6 +155,9 @@ void echo(void)
 
 int main(void)
 {
+	printf("----------------------------\n");
+	printf("¡Bienvenido a AgendaMatic! \n");
+	printf("----------------------------\n");
 	echo();
 
 	return 0;
