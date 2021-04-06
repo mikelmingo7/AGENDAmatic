@@ -27,7 +27,7 @@ void echo(void)
 
 		do
 		{
-			printf( "  Introduce una opcion : \n");
+			printf( "  Introduce una opcion: \n");
 			fflush( stdin );
 			scanf( "%c", &opcion );
 
@@ -38,7 +38,20 @@ void echo(void)
 			case '1':
 				printf("  \n");
 				printf("Has elegido la opcion: 1 \n");
-				leerTareas();
+
+				#define MAXCHAR 1000
+					FILE *fp;
+					char str[MAXCHAR];
+					char* filename = "Tareas.txt";
+
+					fp = fopen(filename, "r");
+					if (fp == NULL){
+						printf("No se puede abrir el archivo %s",filename);
+					}
+					printf("Listado de tareas pendientes: \n");
+					while (fgets(str, MAXCHAR, fp) != NULL)
+						printf("%s", str);
+					fclose(fp);
 				break;
 
 			case '2':
