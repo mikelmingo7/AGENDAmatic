@@ -151,6 +151,18 @@ void echo(void)
 
     } while ( opcion != '5' );
 
+
+	free(titulo);
+	titulo=NULL;
+	free(descripcion);
+	descripcion=NULL;
+	free(fecha);
+	fecha=NULL;
+	free(minutos);
+	minutos=NULL;
+	free(importancia);
+	importancia=NULL;
+
 }
 
 int main(void)
