@@ -31,6 +31,8 @@ void echo(void)
 	char fechaActual[11];
 	char *formato = "%d/%m/%Y";
 
+	int tiempoDispone;
+
 	do
     {
 		printf("  1.Ver tareas \n");
@@ -201,8 +203,13 @@ void echo(void)
 			case '7':
 				limpiar_pantalla();
 				printf("  \n");
-				printf("Has elegido la opcion: 6 (Sugerir una tarea) \n");
+				printf("Has elegido la opcion: 7 (Sugerir una tarea) \n");
 				printf("  \n");
+				printf("Introduce el tiemo en minutos del que dispones");
+				fflush( stdin );
+				scanf("%i", &tiempoDispone);
+				sugerirTarea(tiempoDispone);
+
 				break;
 
 		}

@@ -62,7 +62,39 @@ void leerTareasFecha(char fechaActual[11])
 	}
 	printf("  \n");
 }
+void sugerirTarea(int minutos)
+{
+	char linea[350];
+	char separador[] = " ";
+	int i=0;
+	FILE *l;
+	l = fopen("Tareas.txt", "r");
+	while (fgets(linea, 350, l) != NULL)
+	{
+		int duracion;
+		char *token = strtok(linea, separador);
+		if(token != NULL){
+			int numero=1;
+			while(token != NULL && numero <3){
+				if (numero==2) {
+					//strcpy(duracion=token);
+					duracion=token;
+				}
+				//printf("Token: %s\n", token);
+				token = strtok(NULL, separador);
+				numero=numero+1;
 
+			}
+		}
+		i=i+1;
+		if (duracion<minutos) {
+			printf(" %i. %s ", i,linea);
+		}
+	}
+	fclose(l);
+	printf("  \n");
+	printf("  \n");
+}
 void borrarTareas(int numeroTarea)
 {
 	/*

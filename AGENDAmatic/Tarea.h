@@ -23,5 +23,6 @@ void guardar(Tarea t);
 void borrarTareas(int numeroTarea);
 void editarTarea(int numeroTarea, Tarea tarea);
 void leerTareasFecha(char fechaActual[11]);
+void sugerirTarea(int minutos);
 
 #endif /* TAREA_H_ */
