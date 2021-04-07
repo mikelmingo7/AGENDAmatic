@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include<windows.h>
-
+#include <time.h>
 
 void limpiar_pantalla()
 {
@@ -25,13 +25,21 @@ void echo(void)
 	int *minutos = (int *)malloc(6);
 	int *importancia = (int *)malloc(2);
 
+	//Variables fecha
+	time_t t = time(NULL);
+	struct tm tiempoLocal = *localtime(&t);
+	char fechaActual[11];
+	char *formato = "%d/%m/%Y";
+
 	do
     {
 		printf("  1.Ver tareas \n");
 		printf("  2.Anadir una tarea \n");
 		printf("  3.Editar una tarea \n");
 		printf("  4.Borrar una tarea \n");
-		printf("  5.Salir \n");
+		printf("  5.Borrar una tarea \n");
+		printf("  6.Borrar una tarea \n");
+		printf("  8.Salir \n");
 		printf("\n");
 
 		do
@@ -40,7 +48,7 @@ void echo(void)
 			fflush( stdin );
 			scanf( "%c", &opcion );
 
-		} while ( opcion < '1' || opcion > '5' );
+		} while ( opcion < '1' || opcion > '8' );
 
 		switch ( opcion )
 		{
@@ -143,7 +151,7 @@ void echo(void)
 				strcpy(tarea.desc,descripcion);
 
 
-				printf("Introduce una fecha: ");
+				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fecha);
 				strcpy(tarea.fech,fecha);
@@ -162,10 +170,44 @@ void echo(void)
 				limpiar_pantalla();
 				editarTarea(numeroEditar, tarea);
 				break;
+			case '5':
+				limpiar_pantalla();
+				printf("  \n");
+				printf("Has elegido la opcion: 5 (Ver tareas de hoy) \n");
+				printf("  \n");
+				strftime(fechaActual, sizeof fechaActual, formato, &tiempoLocal);
+				printf("Fecha y hora: %s \n", fechaActual);
+				printf("  \n");
+				leerTareasFecha(fechaActual);
+
+				break;
+
+			case '6':
+				limpiar_pantalla();
+				printf("  \n");
+				printf("Has elegido la opcion: 6 (Ver tareas de una fecha determinada) \n");
+				printf("  \n");
+
+				//strftime(fechaActual, sizeof fechaActual, formato, &tiempoLocal);
+				//printf("Fecha y hora: %s \n", fechaActual);
+				//leerTareasFecha(fechaActual);
+
+				printf("Introduce una fecha con el formato (00/00/0000) : ");
+				fflush( stdin );
+				scanf("%s", fechaActual);
+				leerTareasFecha(fechaActual);
+				break;
+
+			case '7':
+				limpiar_pantalla();
+				printf("  \n");
+				printf("Has elegido la opcion: 6 (Sugerir una tarea) \n");
+				printf("  \n");
+				break;
 
 		}
 
-    } while ( opcion != '5' );
+    } while ( opcion != '8' );
 
 	limpiar_pantalla();
 	free(titulo);

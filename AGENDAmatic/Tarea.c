@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include "Tarea.h"
-
+#include <string.h>
 void guardar(Tarea t)
 {
 	//Print de prueba
     printf("Titulo %s, Descripcion %s, Fecha %s, Minutos %i, Importancia %i \n", t.tit, t.desc, t.fech, t.min, t.imp);
     FILE *f;
     f = fopen("Tareas.txt", "a");
-    fprintf(f, "%s %s %s %i %i \n", t.tit,t.desc, t.fech, t.min, t.imp);
+    fprintf(f, "%s %i %i %s %s \n",t.fech, t.min, t.imp, t.tit,t.desc);
     fclose(f);
     printf("Tarea guardada con exito \n");
 }
@@ -26,6 +26,40 @@ void leerTareas()
 	fclose(l);
 	printf("  \n");
 	printf("Mostradas las %i tareas creadas \n",i);
+	printf("  \n");
+}
+void leerTareasFecha(char fechaActual[11])
+{
+	char linea[350];
+	char fecha[350];
+	int resultadoComparacion;
+	FILE *l;
+	l = fopen("Tareas.txt", "r");
+	int i=0;
+	while (fgets(linea, 350, l) != NULL)
+	{
+		//printf(" %i. %s ", i,linea);
+		strcpy(fecha,linea);
+		//printf(" %i. %s ", i,linea);
+		//printf(" %i. %s ", i,fecha);
+		fecha[strcspn(fecha, " ")] = 0;
+		//printf(" %i. %s \n", i,fecha);
+		resultadoComparacion = stricmp(fechaActual, fecha);
+		if (resultadoComparacion==0) {
+			i=i+1;
+			printf(" %i. %s \n", i,linea);
+		}
+
+	}
+	fclose(l);
+	printf("  \n");
+	if (i==0)
+	{
+
+		printf("Ninguna tarea creada \n");
+	}else {
+		printf("Mostradas las %i tareas creadas \n",i);
+	}
 	printf("  \n");
 }
 
@@ -92,7 +126,7 @@ void editarTarea(int numeroTarea, Tarea tarea)
 			i=i+1;
 			if (i==numeroTarea)
 			{
-				fprintf(t, "%s %s %s %i %i \n", tarea.tit,tarea.desc, tarea.fech, tarea.min, tarea.imp);
+				fprintf(t, "%s %i %i %s %s \n",tarea.fech, tarea.min, tarea.imp, tarea.tit,tarea.desc);
 			}else
 			{
 				fprintf(t, "%s", linea);
