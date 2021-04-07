@@ -3,9 +3,18 @@
 #include "main.h"
 #include "Tarea.h"
 #include <stdlib.h>
-
 #include <string.h>
+#include<windows.h>
 
+
+void limpiar_pantalla()
+{
+  #ifdef _WIN32
+    system("cls");
+  #else
+    system("clear");
+  #endif
+}
 void echo(void)
 {
 	char opcion;
@@ -36,6 +45,7 @@ void echo(void)
 		switch ( opcion )
 		{
 			case '1':
+				limpiar_pantalla();
 				printf("\n");
 				printf("Has elegido la opcion: 1 (Ver lista de Tareas)\n");
 				printf("\n");
@@ -47,6 +57,7 @@ void echo(void)
 				break;
 
 			case '2':
+				limpiar_pantalla();
 				printf("\n");
 				printf("Has elegido la opcion: 2 (Anadir tarea)\n");
 				printf("\n");
@@ -92,24 +103,29 @@ void echo(void)
 				//strcpy(tarea.imp,importancia);
 
 				printf("\n");
+				limpiar_pantalla();
 				guardar(tarea);
 				printf("\n");
 				printf("\n");
 				break;
 			case '4':
+				limpiar_pantalla();
 				printf("  \n");
-				printf("Has elegido la opcion: 4 \n");
+				printf("Has elegido la opcion: 4 (Borrar tarea)\n");
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres borrar: \n");
 				int numero;
 				scanf( "%i", &numero );
+				limpiar_pantalla();
 				borrarTareas(numero);
 				break;
 			case '3':
+				limpiar_pantalla();
 				printf("  \n");
-				printf("Has elegido la opcion: 3 \n");
+				printf("Has elegido la opcion: 3 (editar tarea) \n");
+				printf("  \n");
 				leerTareas();
-				printf("Introduce el numero de tarea que quieres borrar: \n");
+				printf("Introduce el numero de tarea que quieres editar: \n");
 				int numeroEditar;
 				scanf( "%i", &numeroEditar );
 
@@ -143,7 +159,7 @@ void echo(void)
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
 				/////////
-
+				limpiar_pantalla();
 				editarTarea(numeroEditar, tarea);
 				break;
 
@@ -151,7 +167,7 @@ void echo(void)
 
     } while ( opcion != '5' );
 
-
+	limpiar_pantalla();
 	free(titulo);
 	titulo=NULL;
 	free(descripcion);

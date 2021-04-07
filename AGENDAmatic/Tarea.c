@@ -4,11 +4,12 @@
 void guardar(Tarea t)
 {
 	//Print de prueba
-    printf("Titulo %s, Descripcion %s, Fecha %s, Minutos %i, Importancia %i ", t.tit, t.desc, t.fech, t.min, t.imp);
+    printf("Titulo %s, Descripcion %s, Fecha %s, Minutos %i, Importancia %i \n", t.tit, t.desc, t.fech, t.min, t.imp);
     FILE *f;
     f = fopen("Tareas.txt", "a");
     fprintf(f, "%s %s %s %i %i \n", t.tit,t.desc, t.fech, t.min, t.imp);
     fclose(f);
+    printf("Tarea guardada con exito \n");
 }
 
 void leerTareas()
@@ -23,6 +24,9 @@ void leerTareas()
 		printf(" %i. %s ", i,linea);
 	}
 	fclose(l);
+	printf("  \n");
+	printf("Mostradas las %i tareas creadas \n",i);
+	printf("  \n");
 }
 
 void borrarTareas(int numeroTarea)
@@ -71,6 +75,9 @@ void borrarTareas(int numeroTarea)
 	fclose(t);
 	t = fopen("TareasTemp.txt", "w");
 	fclose(t);
+	printf(" \n");
+	printf("Tarea borrada con exito \n");
+	printf(" \n");
 }
 void editarTarea(int numeroTarea, Tarea tarea)
 {
@@ -106,5 +113,8 @@ void editarTarea(int numeroTarea, Tarea tarea)
 	fclose(t);
 	t = fopen("TareasTemp.txt", "w");
 	fclose(t);
+	printf(" \n");
+	printf("Tarea editada con exito \n");
+	printf(" \n");
 }
 
