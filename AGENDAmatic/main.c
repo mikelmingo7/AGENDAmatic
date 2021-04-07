@@ -82,7 +82,7 @@ void echo(void)
 				strcpy(tarea.desc,descripcion);
 
 				//char *fecha = (char *)malloc(11);
-				printf("Introduce una fecha: ");
+				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fecha);
 				//tarea.fech= *fecha;
