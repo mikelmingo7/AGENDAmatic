@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "main.h"
-#include "Tarea.h"
 #include <stdlib.h>
 #include <string.h>
-#include<windows.h>
+#include <windows.h>
 #include <time.h>
+#include "main.h"
+#include "Tarea.h"
+#include "Menu.h"
 
 void limpiar_pantalla()
 {
@@ -35,20 +36,11 @@ void echo(void)
 
 	do
     {
-		printf("  1.Ver tareas \n");
-		printf("  2.Anadir una tarea \n");
-		printf("  3.Editar una tarea \n");
-		printf("  4.Borrar una tarea \n");
-		printf("  5.Borrar una tarea \n");
-		printf("  6.Borrar una tarea \n");
-		printf("  8.Salir \n");
-		printf("\n");
+		mostrarMenu();
 
 		do
 		{
-			printf( "  Introduce una opcion: \n");
-			fflush( stdin );
-			scanf( "%c", &opcion );
+			opcion = menuOpcion();
 
 		} while ( opcion < '1' || opcion > '8' );
 
