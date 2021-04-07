@@ -46,7 +46,7 @@ void echo(void)
 
 		switch ( opcion )
 		{
-			case '1':
+			case '1': // Ver lista de tareas
 				limpiar_pantalla();
 				printf("\n");
 				printf("Has elegido la opcion: 1 (Ver lista de Tareas)\n");
@@ -58,10 +58,10 @@ void echo(void)
 				printf("\n");
 				break;
 
-			case '2':
+			case '2': // Añadir tarea
 				limpiar_pantalla();
 				printf("\n");
-				printf("Has elegido la opcion: 2 (Anadir tarea)\n");
+				printf("Has elegido la opcion: 2 (Anyadir tarea)\n");
 				printf("\n");
 
 				//char *titulo = (char *)malloc(100);
@@ -110,18 +110,8 @@ void echo(void)
 				printf("\n");
 				printf("\n");
 				break;
-			case '4':
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 4 (Borrar tarea)\n");
-				leerTareas();
-				printf("Introduce el numero de tarea que quieres borrar: \n");
-				int numero;
-				scanf( "%i", &numero );
-				limpiar_pantalla();
-				borrarTareas(numero);
-				break;
-			case '3':
+
+			case '3': // Editar tarea
 				limpiar_pantalla();
 				printf("  \n");
 				printf("Has elegido la opcion: 3 (editar tarea) \n");
@@ -164,7 +154,20 @@ void echo(void)
 				limpiar_pantalla();
 				editarTarea(numeroEditar, tarea);
 				break;
-			case '5':
+
+			case '4': // Borrar tarea
+				limpiar_pantalla();
+				printf("  \n");
+				printf("Has elegido la opcion: 4 (Borrar tarea)\n");
+				leerTareas();
+				printf("Introduce el numero de tarea que quieres borrar: \n");
+				int numero;
+				scanf( "%i", &numero );
+				limpiar_pantalla();
+				borrarTareas(numero);
+				break;
+
+			case '5': // Ver tareas de hoy
 				limpiar_pantalla();
 				printf("  \n");
 				printf("Has elegido la opcion: 5 (Ver tareas de hoy) \n");
@@ -176,7 +179,7 @@ void echo(void)
 
 				break;
 
-			case '6':
+			case '6': // Ver tareas de una fecha determinada
 				limpiar_pantalla();
 				printf("  \n");
 				printf("Has elegido la opcion: 6 (Ver tareas de una fecha determinada) \n");
@@ -192,7 +195,7 @@ void echo(void)
 				leerTareasFecha(fechaActual);
 				break;
 
-			case '7':
+			case '7': // Sugerir una tarea
 				limpiar_pantalla();
 				printf("  \n");
 				printf("Has elegido la opcion: 7 (Sugerir una tarea) \n");
@@ -209,15 +212,18 @@ void echo(void)
     } while ( opcion != '8' );
 
 	limpiar_pantalla();
+
+	// TODO LIBERAR MEMORIA
 	free(titulo);
-	titulo=NULL;
 	free(descripcion);
-	descripcion=NULL;
 	free(fecha);
-	fecha=NULL;
 	free(minutos);
-	minutos=NULL;
 	free(importancia);
+
+	titulo=NULL;
+	descripcion=NULL;
+	fecha=NULL;
+	minutos=NULL;
 	importancia=NULL;
 
 }

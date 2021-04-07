@@ -7,11 +7,12 @@ char opcion;
 void mostrarMenu()
 {
 	printf("  1.Ver tareas \n");
-	printf("  2.Anadir una tarea \n");
+	printf("  2.Anyadir una tarea \n");
 	printf("  3.Editar una tarea \n");
 	printf("  4.Borrar una tarea \n");
-	printf("  5.Borrar una tarea \n");
-	printf("  6.Borrar una tarea \n");
+	printf("  5.Ver tareas de hoy \n");
+	printf("  6.Ver tareas de una fecha determinada \n");
+	printf("  7.Sugerir una tarea \n")
 	printf("  8.Salir \n");
 	printf("\n");
 
