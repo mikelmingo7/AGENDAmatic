@@ -48,6 +48,7 @@ void echo(void)
 		{
 			case '1': // Ver lista de tareas
 				limpiar_pantalla();
+
 				printf("\n");
 				printf("Has elegido la opcion: 1 (Ver lista de Tareas)\n");
 				printf("\n");
