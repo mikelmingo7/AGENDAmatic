@@ -152,7 +152,7 @@ void echo(void)
 				leerTareasFecha(fechaActual);
 				break;
 
-			case '7': // Marcar un atarea como completada
+			case '7': // Marcar una tarea como completada
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres marcar como completada: \n");
 				fflush( stdin );
@@ -162,9 +162,17 @@ void echo(void)
 				marcarTareaCompletada(numeroTareaComp);
 				break;
 
+			case '8': // Ver tareas completadas
+				printf("----------------------------\n");
+				printf("Lista de Tareas Completadas: \n");
+				leerTareasCompletadas();
+				printf("----------------------------\n");
+				printf("\n");
+				break;
+
 		}
 
-    } while ( opcion != '8' );
+    } while ( opcion != '9' );
 
 	limpiar_pantalla();
 

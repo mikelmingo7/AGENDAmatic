@@ -77,6 +77,35 @@ void leerTareasFecha(char fechaActual[11])
 	printf("  \n");
 }
 
+void leerTareasCompletadas()
+{
+	const char invalid_chars[10] = "Completada";
+	char linea[350];
+	// Abrimos el fichero
+	FILE *l;
+	l = fopen("Tareas.txt", "r");
+	int i=0;
+	int cont = 0;
+	while (fgets(linea, 350, l) != NULL)
+	{
+		i=i+1;
+		if (strchr(linea, *invalid_chars)) { // Comprobar si está completada
+			printf(" %i. %s ", i,linea);
+			cont++;
+		}
+
+	}
+	fclose(l);
+	printf("  \n");
+	if (cont==0)
+		{
+			printf("Ninguna tarea completada \n");
+		}else {
+			printf("Mostradas las %i tareas completadas \n",cont);
+		}
+	printf("  \n");
+}
+
 void borrarTareas(int numeroTarea)
 {
 	char linea[350];

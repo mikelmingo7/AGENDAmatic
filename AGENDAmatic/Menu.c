@@ -14,7 +14,8 @@ void mostrarMenu()
 	printf("  5.Ver tareas de hoy \n");
 	printf("  6.Ver tareas de una fecha determinada \n");
 	printf("  7.Marcar una tarea como completada \n");
-	printf("  8.Salir \n");
+	printf("  8.Ver tareas completadas \n");
+	printf("  9.Salir \n");
 	printf("\n");
 
 }
