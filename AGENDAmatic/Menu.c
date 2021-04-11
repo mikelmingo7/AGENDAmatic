@@ -27,7 +27,7 @@ char menuOpcion()
 
 	limpiar_pantalla();
 	printf("\n");
-	printf("Has elegido la opcion: %i\n", opcion-48);
+	printf("Has elegido la opcion: %c\n", opcion);
 	printf("\n");
 
 	return opcion;
