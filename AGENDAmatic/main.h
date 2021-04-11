@@ -5,7 +5,6 @@
 #define MAIN_H_
 
 void echo(void);
-void limpiar_pantalla();
 
 #endif /* MAIN_H_ */
 

@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include "Tarea.h"
 #include <string.h>
+#include <windows.h>
+
+void limpiar_pantalla() // Funcion principal para limpiar la pantalla (eliminar texto para la visión del usuario)
+{
+  //windows
+  #ifdef _WIN32
+    system("cls");
+  //linux
+  #else
+    system("clear");
+  #endif
+}
+
 void guardar(Tarea t)
 {
 	//Print de la tarea

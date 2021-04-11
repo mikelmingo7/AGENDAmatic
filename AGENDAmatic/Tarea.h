@@ -21,5 +21,6 @@ void borrarTareas(int numeroTarea);
 void editarTarea(int numeroTarea, Tarea tarea);
 void leerTareasFecha(char fechaActual[11]);
 void marcarTareaCompletada(int numeroTareaCompletada);
+void limpiar_pantalla();
 
 #endif /* TAREA_H_ */

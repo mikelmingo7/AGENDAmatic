@@ -2,22 +2,11 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h>
 #include <time.h>
 #include "main.h"
 #include "Tarea.h"
 #include "Menu.h"
 
-void limpiar_pantalla()
-{
-  //windows
-  #ifdef _WIN32
-    system("cls");
-  //linux
-  #else
-    system("clear");
-  #endif
-}
 void echo(void)
 {
 	//Variables
@@ -48,11 +37,7 @@ void echo(void)
 		switch ( opcion )
 		{
 			case '1': // Ver lista de tareas
-				limpiar_pantalla();
 
-				printf("\n");
-				printf("Has elegido la opcion: 1 (Ver lista de Tareas)\n");
-				printf("\n");
 				printf("----------------------------\n");
 				printf("Lista de Tareas: \n");
 				leerTareas();
@@ -61,10 +46,6 @@ void echo(void)
 				break;
 
 			case '2': // Añadir tarea
-				limpiar_pantalla();
-				printf("\n");
-				printf("Has elegido la opcion: 2 (Anyadir tarea)\n");
-				printf("\n");
 
 				//Titulo
 				printf("Introduce un titulo: ");
@@ -106,10 +87,6 @@ void echo(void)
 				break;
 
 			case '3': // Editar tarea
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 3 (editar tarea) \n");
-				printf("  \n");
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres editar: \n");
 				int numeroEditar;
@@ -152,9 +129,6 @@ void echo(void)
 				break;
 
 			case '4': // Borrar tarea
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 4 (Borrar tarea)\n");
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres borrar: \n");
 				fflush( stdin );
@@ -165,10 +139,6 @@ void echo(void)
 				break;
 
 			case '5': // Ver tareas de hoy
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 5 (Ver tareas de hoy) \n");
-				printf("  \n");
 				strftime(fechaActual, sizeof fechaActual, formato, &tiempoLocal);
 				printf("Fecha y hora: %s \n", fechaActual);
 				printf("  \n");
@@ -176,11 +146,6 @@ void echo(void)
 				break;
 
 			case '6': // Ver tareas de una fecha determinada
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 6 (Ver tareas de una fecha determinada) \n");
-				printf("  \n");
-
 				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fechaActual);
@@ -188,9 +153,6 @@ void echo(void)
 				break;
 
 			case '7': // Marcar un atarea como completada
-				limpiar_pantalla();
-				printf("  \n");
-				printf("Has elegido la opcion: 7 (Marcar una tarea como completada)\n");
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres marcar como completada: \n");
 				fflush( stdin );
