@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Menu.h"
+#include "Tarea.h"
 
 char opcion;
 
@@ -23,5 +24,11 @@ char menuOpcion()
 	printf( "  Introduce una opcion: \n");
 	fflush( stdin );
 	scanf( "%c", &opcion );
+
+	limpiar_pantalla();
+	printf("\n");
+	printf("Has elegido la opcion: %i\n", opcion-48);
+	printf("\n");
+
 	return opcion;
 }
