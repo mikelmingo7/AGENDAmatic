@@ -1,10 +1,6 @@
 /*
- * main.h
- *
- *  Created on: 1 abr. 2021
- *      Author: Julen
+ * menu.h
  */
-
 #ifndef MAIN_H_
 #define MAIN_H_
 

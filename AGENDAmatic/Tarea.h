@@ -1,8 +1,5 @@
 /*
- * Tarea.h
- *
- *  Created on: 5 abr. 2021
- *      Author: Julen
+ * tarea.h
  */
 
 #ifndef TAREA_H_
@@ -23,6 +20,6 @@ void guardar(Tarea t);
 void borrarTareas(int numeroTarea);
 void editarTarea(int numeroTarea, Tarea tarea);
 void leerTareasFecha(char fechaActual[11]);
-void sugerirTarea(int minutos);
+void marcarTareaCompletada(int numeroTareaCompletada);
 
 #endif /* TAREA_H_ */

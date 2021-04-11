@@ -3,7 +3,7 @@
 #include <string.h>
 void guardar(Tarea t)
 {
-	//Print de prueba
+	//Print de la tarea
     printf("Titulo %s, Descripcion %s, Fecha %s, Minutos %i, Importancia %i \n", t.tit, t.desc, t.fech, t.min, t.imp);
     FILE *f;
     f = fopen("Tareas.txt", "a");
@@ -38,12 +38,8 @@ void leerTareasFecha(char fechaActual[11])
 	int i=0;
 	while (fgets(linea, 350, l) != NULL)
 	{
-		//printf(" %i. %s ", i,linea);
 		strcpy(fecha,linea);
-		//printf(" %i. %s ", i,linea);
-		//printf(" %i. %s ", i,fecha);
 		fecha[strcspn(fecha, " ")] = 0;
-		//printf(" %i. %s \n", i,fecha);
 		resultadoComparacion = stricmp(fechaActual, fecha);
 		if (resultadoComparacion==0) {
 			i=i+1;
@@ -62,56 +58,9 @@ void leerTareasFecha(char fechaActual[11])
 	}
 	printf("  \n");
 }
-void sugerirTarea(int minutos)
-{
-	char linea[350];
-	char separador[] = " ";
-	int i=0;
-	FILE *l;
-	l = fopen("Tareas.txt", "r");
-	while (fgets(linea, 350, l) != NULL)
-	{
-		int duracion;
-		char *token = strtok(linea, separador);
-		if(token != NULL){
-			int numero=1;
-			while(token != NULL && numero <3){
-				if (numero==2) {
-					//strcpy(duracion=token);
-					duracion=token;
-				}
-				//printf("Token: %s\n", token);
-				token = strtok(NULL, separador);
-				numero=numero+1;
 
-			}
-		}
-		i=i+1;
-		if (duracion<minutos) {
-			printf(" %i. %s ", i,linea);
-		}
-	}
-	fclose(l);
-	printf("  \n");
-	printf("  \n");
-}
 void borrarTareas(int numeroTarea)
 {
-	/*
-	char linea[350];
-	FILE *b;
-	b = fopen("TareasTemp.txt", "a");
-	int i=0;
-	while (fgets(linea, 350, b) != NULL)
-	{
-		i=i+1;
-		if (i!=numeroTarea)
-		{
-			fprintf(b, "%s\n", linea);
-		}
-	}
-	fclose(b);
-	*/
 	char linea[350];
 	FILE *b;
 	b = fopen("Tareas.txt", "r");
@@ -159,6 +108,46 @@ void editarTarea(int numeroTarea, Tarea tarea)
 			if (i==numeroTarea)
 			{
 				fprintf(t, "%s %i %i %s %s \n",tarea.fech, tarea.min, tarea.imp, tarea.tit,tarea.desc);
+			}else
+			{
+				fprintf(t, "%s", linea);
+			}
+		}
+	fclose(b);
+	fclose(t);
+	b = fopen("Tareas.txt", "w");
+	fclose(b);
+	b = fopen("Tareas.txt", "a");
+	t = fopen("TareasTemp.txt", "r");
+	while (fgets(linea, 350, t) != NULL)
+	{
+		fprintf(b, "%s", linea);
+
+	}
+	fclose(b);
+	fclose(t);
+	t = fopen("TareasTemp.txt", "w");
+	fclose(t);
+	printf(" \n");
+	printf("Tarea editada con exito \n");
+	printf(" \n");
+}
+void marcarTareaCompletada(int numeroTareaCompletada)
+{
+	char linea[350];
+	FILE *b;
+	b = fopen("Tareas.txt", "r");
+	int i=0;
+	FILE *t;
+	t = fopen("TareasTemp.txt", "a");
+	while (fgets(linea, 350, b) != NULL)
+		{
+			i=i+1;
+			if (i==numeroTareaCompletada)
+			{
+				linea[strcspn(linea, "\n")] = 0;
+				strcat(linea," Completada \n");
+				fprintf(t, "%s", linea);
 			}else
 			{
 				fprintf(t, "%s", linea);

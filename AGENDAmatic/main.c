@@ -10,14 +10,17 @@
 
 void limpiar_pantalla()
 {
+  //windows
   #ifdef _WIN32
     system("cls");
+  //linux
   #else
     system("clear");
   #endif
 }
 void echo(void)
 {
+	//Variables
 	char opcion;
 	Tarea tarea;
 	char *titulo = (char *)malloc(100);
@@ -31,8 +34,6 @@ void echo(void)
 	struct tm tiempoLocal = *localtime(&t);
 	char fechaActual[11];
 	char *formato = "%d/%m/%Y";
-
-	int tiempoDispone;
 
 	do
     {
@@ -65,45 +66,37 @@ void echo(void)
 				printf("Has elegido la opcion: 2 (Anyadir tarea)\n");
 				printf("\n");
 
-				//char *titulo = (char *)malloc(100);
+				//Titulo
 				printf("Introduce un titulo: ");
 				fflush( stdin );
 				fgets(titulo, 100, stdin);
-				//scanf("%s", titulo);
-				//tarea.tit= titulo;
-				//Para borrar el salto de linea
 				titulo[strcspn(titulo, "\n")] = 0;
 				strcpy(tarea.tit,titulo);
 
-				//char *descripcion = (char *)malloc(200);
+				//Descripcion
 				printf("Introduce una descripcion: ");
 				fflush( stdin );
-				//scanf("%s", descripcion);
-				//tarea.desc= *descripcion;
 				fgets(descripcion, 200, stdin);
 				descripcion[strcspn(descripcion, "\n")] = 0;
 				strcpy(tarea.desc,descripcion);
 
-				//char *fecha = (char *)malloc(11);
+				//Fecha
 				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fecha);
-				//tarea.fech= *fecha;
 				strcpy(tarea.fech,fecha);
 
-				//int *minutos = (int *)malloc(6);
+				//Minutos
 				printf("Introduce una duracion en minutos: ");
 				fflush( stdin );
 				scanf("%i", minutos);
 				tarea.min= *minutos;
-				//strcpy(tarea.min,minutos);
 
-				//int *importancia = (int *)malloc(2);
+				//Importancia
 				printf("Introduce la importancia del  1 al 10: ");
 				fflush( stdin );
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
-				//strcpy(tarea.imp,importancia);
 
 				printf("\n");
 				limpiar_pantalla();
@@ -122,36 +115,38 @@ void echo(void)
 				int numeroEditar;
 				scanf( "%i", &numeroEditar );
 
-				/////////
+				//Titulo
 				printf("Introduce un titulo: ");
 				fflush( stdin );
 				fgets(titulo, 100, stdin);
 				titulo[strcspn(titulo, "\n")] = 0;
 				strcpy(tarea.tit,titulo);
 
+				//Descripcion
 				printf("Introduce una descripcion: ");
 				fflush( stdin );
 				fgets(descripcion, 200, stdin);
 				descripcion[strcspn(descripcion, "\n")] = 0;
 				strcpy(tarea.desc,descripcion);
 
-
+				//Fecha
 				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fecha);
 				strcpy(tarea.fech,fecha);
 
-
+				//Minutos
 				printf("Introduce una duracion en minutos: ");
 				fflush( stdin );
 				scanf("%i", minutos);
 				tarea.min= *minutos;
 
+				//Importancia
 				printf("Introduce la importancia del  1 al 10: ");
 				fflush( stdin );
 				scanf("%i", importancia);
 				tarea.imp= *importancia;
-				/////////
+
 				limpiar_pantalla();
 				editarTarea(numeroEditar, tarea);
 				break;
@@ -162,6 +157,7 @@ void echo(void)
 				printf("Has elegido la opcion: 4 (Borrar tarea)\n");
 				leerTareas();
 				printf("Introduce el numero de tarea que quieres borrar: \n");
+				fflush( stdin );
 				int numero;
 				scanf( "%i", &numero );
 				limpiar_pantalla();
@@ -177,7 +173,6 @@ void echo(void)
 				printf("Fecha y hora: %s \n", fechaActual);
 				printf("  \n");
 				leerTareasFecha(fechaActual);
-
 				break;
 
 			case '6': // Ver tareas de una fecha determinada
@@ -186,26 +181,23 @@ void echo(void)
 				printf("Has elegido la opcion: 6 (Ver tareas de una fecha determinada) \n");
 				printf("  \n");
 
-				//strftime(fechaActual, sizeof fechaActual, formato, &tiempoLocal);
-				//printf("Fecha y hora: %s \n", fechaActual);
-				//leerTareasFecha(fechaActual);
-
 				printf("Introduce una fecha con el formato (00/00/0000) : ");
 				fflush( stdin );
 				scanf("%s", fechaActual);
 				leerTareasFecha(fechaActual);
 				break;
 
-			case '7': // Sugerir una tarea
+			case '7': // Marcar un atarea como completada
 				limpiar_pantalla();
 				printf("  \n");
-				printf("Has elegido la opcion: 7 (Sugerir una tarea) \n");
-				printf("  \n");
-				printf("Introduce el tiemo en minutos del que dispones");
+				printf("Has elegido la opcion: 7 (Marcar una tarea como completada)\n");
+				leerTareas();
+				printf("Introduce el numero de tarea que quieres marcar como completada: \n");
 				fflush( stdin );
-				scanf("%i", &tiempoDispone);
-				sugerirTarea(tiempoDispone);
-
+				int numeroTareaComp;
+				scanf( "%i", &numeroTareaComp);
+				limpiar_pantalla();
+				marcarTareaCompletada(numeroTareaComp);
 				break;
 
 		}
