@@ -224,7 +224,7 @@ void echo(void)
 int main(void)
 {
 	printf("----------------------------\n");
-	printf("¡Bienvenido a AgendaMatic! \n");
+	printf(" Bienvenido a AgendaMatic! \n");
 	printf("----------------------------\n");
 	echo();
 
