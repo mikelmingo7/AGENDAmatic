@@ -60,7 +60,7 @@ void echo(void)
 				printf("\n");
 				break;
 
-			case '2': // AÃ±adir tarea
+			case '2': // Añadir tarea
 				limpiar_pantalla();
 				printf("\n");
 				printf("Has elegido la opcion: 2 (Anyadir tarea)\n");
@@ -224,7 +224,7 @@ void echo(void)
 int main(void)
 {
 	printf("----------------------------\n");
-	printf(" Bienvenido a AgendaMatic! \n");
+	printf("¡Bienvenido a AgendaMatic! \n");
 	printf("----------------------------\n");
 	echo();
 
