@@ -25,7 +25,12 @@ void leerTareas()
 	}
 	fclose(l);
 	printf("  \n");
-	printf("Mostradas las %i tareas creadas \n",i);
+	if (i==0)
+		{
+			printf("Ninguna tarea creada \n");
+		}else {
+			printf("Mostradas las %i tareas creadas \n",i);
+		}
 	printf("  \n");
 }
 void leerTareasFecha(char fechaActual[11])
@@ -169,7 +174,7 @@ void marcarTareaCompletada(int numeroTareaCompletada)
 	t = fopen("TareasTemp.txt", "w");
 	fclose(t);
 	printf(" \n");
-	printf("Tarea editada con exito \n");
+	printf("Tarea marcada como completada \n");
 	printf(" \n");
 }
 
