@@ -32,7 +32,7 @@ void echo(void)
 		{
 			opcion = menuOpcion();
 
-		} while ( opcion < '1' || opcion > '8' );
+		} while ( opcion < '1' || opcion > '9' );
 
 		switch ( opcion )
 		{
@@ -140,7 +140,7 @@ void echo(void)
 
 			case '5': // Ver tareas de hoy
 				strftime(fechaActual, sizeof fechaActual, formato, &tiempoLocal);
-				printf("Fecha y hora: %s \n", fechaActual);
+				printf("Fecha: %s \n", fechaActual);
 				printf("  \n");
 				leerTareasFecha(fechaActual);
 				break;
