@@ -190,3 +190,14 @@ void echo(void)
 	importancia=NULL;
 
 }
+
+int main(void)
+{
+	printf("----------------------------\n");
+	printf(" Bienvenido a AgendaMatic! \n");
+	printf("----------------------------\n");
+	echo();
+
+	return 0;
+}
+
