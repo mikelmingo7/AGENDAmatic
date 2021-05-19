@@ -12,11 +12,11 @@ void echo(void)
 	//Variables
 	char opcion;
 	Tarea tarea;
-	char *titulo = (char *)malloc(100);
-	char *descripcion = (char *)malloc(200);
-	char *fecha = (char *)malloc(11);
-	int *minutos = (int *)malloc(6);
-	int *importancia = (int *)malloc(2);
+	char *titulo = (char *)malloc(sizeof(tarea.tit));
+	char *descripcion = (char *)malloc(sizeof(tarea.desc));
+	char *fecha = (char *)malloc(sizeof(tarea.fech));
+	int *minutos = (int *)malloc(sizeof(tarea.min));
+	int *importancia = (int *)malloc(sizeof(tarea.imp));
 
 	//Variables fecha
 	time_t t = time(NULL);
